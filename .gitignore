@@ -9,3 +9,4 @@ tmux-watcher
 *.bin
 *.o
 *.a
+*.log

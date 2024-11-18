@@ -120,9 +120,7 @@ func UpdateSessions(cmdOut string, config Config, srv *sheets.Service){
 			).ValueInputOption("RAW").Do()
 		if err != nil {
 			fmt.Println("error appending: ", err)
-		} else {
-			fmt.Println("data appended")
-		}
+		} 
 	}
 }
 

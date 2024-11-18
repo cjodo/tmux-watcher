@@ -2,10 +2,25 @@ package main
 
 import (
 	"fmt"
+	"log"
+	"os"
+	"path"
 	"strings"
 
 	"google.golang.org/api/sheets/v4"
 )
+
+// TODO is this really how I should do it lol
+
+type Session struct {
+	SessionName string `json:"name"`
+	StartTime		string `json:"start_time"`
+	LastActive	int			`json:"last_active"`
+}
+
+type Sessions struct {
+	Sessions []Session 
+}
 
 func GetSessions() []string {
 	var args = []string{"list-sessions", "-F#S"}
@@ -26,12 +41,21 @@ func GetSessions() []string {
 	return sessions
 }
 
-func UpdateSessions(cmdOut string, config Config, srv *sheets.Service){
+func UpdateSessionsLocally(cmdOut string, config Config) {
+	// activeSessions := strings.Split(cmdOut, "\n")
+	// repoInteractions := make(map[string][]interface{})
+
+	f, err := getWriteFile(config)
+	if err != nil {
+		log.Fatal("can't get write file. exiting ", err)
+	}
+	
+	fmt.Println(f)
+}
+
+func UpdateSessionsWithGoogle(cmdOut string, config Config, srv *sheets.Service){
 	activeSessions := strings.Split(cmdOut, "\n")
-
 	repoInteractions := make(map[string][]interface{})
-
-
 
 	for _, session := range activeSessions {
 		sessionParts := strings.Fields(session)

@@ -1,0 +1,11 @@
+.*
+!/.gitignore
+
+tmux-watcher
+
+# Binaries
+*.exe
+*.out
+*.bin
+*.o
+*.a

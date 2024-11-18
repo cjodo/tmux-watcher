@@ -22,7 +22,7 @@ Create a file at ~/.config/tmux-watcher/config.json
 
 Config options: 
 
-```json
+```js
 
 {
     "enabled_repositories": ["repo1", "repo2"], // session-names to look for

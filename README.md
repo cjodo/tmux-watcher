@@ -11,7 +11,7 @@ This is a tool to track the time spent working on any given repository / session
 
 It's not required but I recommend using this alongside [tmux-sessionizer](https://github.com/jrmoulton/tmux-sessionizer).  
 
-#### Examples:
+#### Usage Examples:
 - Student tracking time spent on each class / project
 - Tracking hours worked on a client project as a freelance dev
 - Anyone interested to see how long they spend writing code

@@ -3,8 +3,6 @@ package main
 import (
 	"fmt"
 	"log"
-	"os"
-	"path"
 	"strings"
 
 	"google.golang.org/api/sheets/v4"

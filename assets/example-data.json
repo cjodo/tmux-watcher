@@ -1,0 +1,5 @@
+{
+	"session_name": "name",
+	"start_time": "unix_time",
+	"last_active": "unix_time"
+}

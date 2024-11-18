@@ -32,9 +32,9 @@ Config options:
     }
 }
 
+```
 ### Installation 
 
-```
 
 1. Clone the repo
 ```sh

@@ -12,15 +12,15 @@ type SheetsApiOpts struct {
 }
 
 type Config struct {
-	EnabledRepos 		[]string 				`json:"enabled_repositories"`
-	SheetsApiOpts 	*SheetsApiOpts	`json:"sheets_api_options"`
+	EnabledRepos 				[]string 				`json:"enabled_repositories"`
+	SheetsApiOpts 			*SheetsApiOpts	`json:"sheets_api_options"`
+	FileWriteLocation		string					`json:"write_location"`	
 }
 
 var (
 	homeDir = os.Getenv("HOME")
 	configPath = "/.config/tmux-watcher/config.json"
 )
-
 
 func GetConfig() (Config, error) {
 	b, err := os.ReadFile(homeDir + configPath)

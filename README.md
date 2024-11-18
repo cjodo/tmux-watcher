@@ -2,7 +2,7 @@
 
 ### Installation: 
 ##### Requirements: 
-- Latest version of [go](url) 
+- Latest version of [go](https://go.dev/) 
 -  tmux > version 3.5
 
 ### Introduction

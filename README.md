@@ -1,7 +1,6 @@
 # tmux-watcher
 
-### Installation: 
-##### Requirements: 
+### Requirements: 
 - Latest version of [go](https://go.dev/) 
 -  tmux > version 3.5
 
@@ -32,6 +31,8 @@ Config options:
         "sheet_id": "abc123",
     }
 }
+
+### Installation 
 
 ```
 

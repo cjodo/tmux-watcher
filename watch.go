@@ -42,8 +42,10 @@ func MoniterSessions(sessions []string, config Config, srv *sheets.Service) {
 		}
 		
 		if withGoogle{
+			fmt.Println("using google sheets")
 			UpdateSessionsWithGoogle(out, config, srv)
 		} else {
+			fmt.Println("using local file")
 			UpdateSessionsLocally(out, config)
 		}
 

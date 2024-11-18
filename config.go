@@ -7,7 +7,7 @@ import (
 
 type SheetsApiOpts struct {
 	IsEnabled					bool 	`json:"enabled"`
-	SpreadsheetId 	string	`json:"id"`
+	SpreadsheetId 	string	`json:"sheet_id"`
 	WriteRange			string 	`json:"write_range"`
 }
 

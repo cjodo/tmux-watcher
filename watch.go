@@ -7,12 +7,8 @@ import (
 	"google.golang.org/api/sheets/v4"
 )
 
-type Session struct {
-	Name 					string
-	LastModified  time.Time
-}
-
 func SetHooks(session string) {
+	// not yet used
 	args := []string{"set-hook","-t", session, "client-attached", "display-message hi"}
 
 	out, cmdErr, err := RunCmd(args...)
@@ -29,8 +25,9 @@ func SetHooks(session string) {
 }
 
 func MoniterSessions(sessions []string, config Config, srv *sheets.Service) {
+	withGoogle := false
 	if srv != nil {
-		fmt.Println("sheets service enabled")
+		withGoogle = true
 	}
 	for {
 		out, cmdErr, err := RunCmd("list-sessions", "-F", "#{session_name} #{session_activity}")
@@ -44,7 +41,11 @@ func MoniterSessions(sessions []string, config Config, srv *sheets.Service) {
 			continue
 		}
 		
-		UpdateSessions(out, config, srv)
+		if withGoogle{
+			UpdateSessionsWithGoogle(out, config, srv)
+		} else {
+			UpdateSessionsLocally(out, config)
+		}
 
 		time.Sleep(5 * time.Minute)
 	}

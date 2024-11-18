@@ -46,6 +46,6 @@ func MoniterSessions(sessions []string, config Config, srv *sheets.Service) {
 		
 		UpdateSessions(out, config, srv)
 
-		time.Sleep(10 * time.Second)
+		time.Sleep(5 * time.Minute)
 	}
 }

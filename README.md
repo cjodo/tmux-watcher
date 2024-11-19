@@ -1,7 +1,6 @@
 # tmux-watcher
 
-### Installation: 
-##### Requirements: 
+### Requirements: 
 - Latest version of [go](https://go.dev/) 
 -  tmux > version 3.5
 
@@ -34,6 +33,8 @@ enabled_repositories: A list of session names you want to watch
 }
 
 ```
+### Installation 
+
 
 1. Clone the repo
 ```sh

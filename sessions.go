@@ -11,8 +11,8 @@ import (
 // TODO is this really how I should do it lol
 
 type Session struct {
-	SessionName string `json:"name"`
-	StartTime		string `json:"start_time"`
+	SessionName string 	`json:"name"`
+	StartTime		string 	`json:"start_time"`
 	LastActive	int			`json:"last_active"`
 }
 
@@ -23,7 +23,7 @@ type Sessions struct {
 func GetSessions() []string {
 	var args = []string{"list-sessions", "-F#S"}
 
-	out, cmdErr, err := RunCmd(args...)
+	out, cmdErr, err := RunTmux(args...)
 
 	if cmdErr != "" {
 		fmt.Println(cmdErr)
@@ -39,8 +39,8 @@ func GetSessions() []string {
 	return sessions
 }
 
-func UpdateSessionsLocally(cmdOut string, config Config) {
-	// activeSessions := strings.Split(cmdOut, "\n")
+func UpdateSessionsLocally(config Config, out, prevOut string) {
+	// activeSessions := strings.Split(out, "\n")
 	// repoInteractions := make(map[string][]interface{})
 
 	f, err := getWriteFile(config)
@@ -166,7 +166,6 @@ func slicesEqual(slice1, slice2 []string) bool {
 	}
 	return true
 }
-
 
 // Helper function to convert a slice of strings to a slice of interfaces
 func convertToInterfaceSlice(slice []string) []interface{} {

@@ -9,12 +9,9 @@
 
 This is a tool to track the time spent working on any given repository / session indexed by tmux session name.  It tracks your active sessions and writes to a json file or if you'd like, a google sheet through the google api (requires google cloud project).  
 
-It's not required but I recommend using this alongside [tmux-sessionizer](https://github.com/jrmoulton/tmux-sessionizer).  
+Also an alternative to [aw-watcher-tmux](https://github.com/akohlbecker/aw-watcher-tmux) if you don't want touse [ActivityWatcher](https://activitywatch.net/) . Or if your're using wsl.
 
-#### Usage Examples:
-- Student tracking time spent on each class / project
-- Tracking hours worked on a client project as a freelance dev
-- Anyone interested to see how long they spend writing code
+It's not required but I recommend using this alongside [tmux-sessionizer](https://github.com/jrmoulton/tmux-sessionizer).  
 
 ### Configuration: 
 
@@ -22,12 +19,15 @@ Create a file at ~/.config/tmux-watcher/config.json
 
 Config options: 
 
+enabled_repositories: A list of session names you want to watch
+
+
 ```js
 
 {
-    "enabled_repositories": ["repo1", "repo2"], // session-names to look for
-    "write_location": "/path/to/desired/out-file" // default is ./sessions.json
-    "sheets-api-options": { // unstable
+    "enabled_repositories": ["repo1", "repo2"], 
+    "write_location": "/path/to/desired/out-file" 
+    "sheets-api-options": { 
         "enabled": false,
         "sheet_id": "abc123",
     }

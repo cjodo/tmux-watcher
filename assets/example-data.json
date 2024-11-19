@@ -1,5 +1,32 @@
 {
-	"session_name": "name",
-	"start_time": "unix_time",
-	"last_active": "unix_time"
+	{
+		"session_name": "repo1",
+		"sessions": [
+			{
+				"start_time": "unix_time",
+				"last_active": "unix_time"
+				"total_time": "time_since_starting"
+			},
+			{
+				"start_time": "unix_time",
+				"last_active": "unix_time"
+				"total_time": "time_since_starting"
+			}
+		]
+	},
+	{
+		"session_name": "repo2",
+		"sessions": [
+			{
+				"start_time": "unix_time",
+				"last_active": "unix_time"
+				"total_time": "time_since_starting"
+			},
+			{
+				"start_time": "unix_time",
+				"last_active": "unix_time"
+				"total_time": "time_since_starting"
+			}
+		]
+	}
 }

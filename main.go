@@ -3,12 +3,20 @@ package main
 import (
 	"context"
 	"fmt"
+	"os"
 	"tmux-watcher/pkg/tmuxsheets"
 
 	"google.golang.org/api/sheets/v4"
 )
 
 func main() {
+	if len(os.Args) < 2 {
+		fmt.Println("default behaviour")
+	} else {
+		command := os.Args[1]
+		RunCmd(command)
+	}
+
 	ctx := context.Background()
 
 	config, err := GetConfig()

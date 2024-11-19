@@ -1,17 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>tmux-watcher</title>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>tmux-watcher</title>
 		<style>
+		/* Base styling for the app */
+		body {
+		margin: 0;
+		font-family: "JetBrains Mono", monospace;
+		color: #d8dee9; /* Text color */
+		background-color: #2e3440; /* Background color */
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		height: 100vh;
+		}
+
 		h1 {
-		color: red;
+		font-size: 2rem;
+		color: #88c0d0; 
+		}
+
+		p {
+		font-size: 1.2rem;
+		color: #a3be8c; 
+		}
+
+		.terminal {
+		border: 2px solid #4c566a; 
+		border-radius: 5px;
+		padding: 20px;
+		width: 80%;
+		max-width: 600px;
+		background: #3b4252; /* Slightly lighter background */
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+		}
+		.terminal > div {
+		display: flex;
+		align-items:center;
+		justi
+		}
+
+		.cursor {
+		display: inline-block;
+		background-color: #88c0d0;
+		width: 8px;
+		height: 1.2em;
+		animation: blink 1s steps(2, start) infinite;
+		vertical-align: middle;
+		}
+
+		@keyframes blink {
+		0%, 100% { background-color: #88c0d0; }
+		50% { background-color: transparent; }
 		}
 		</style>
-</head>
-<body>
-		<h1>Thanks for authorizing</h1>
-		<p>You can close this tab.</p>
-</body>
+	</head>
+	<body>
+		<div class="terminal">
+			<h1>Thank you for authenticating!</h1>
+			<div>
+				<p>You can now close this tab.</p>
+				<div class="cursor"></div>
+			</div>
+		</div>
+	</body>
 </html>

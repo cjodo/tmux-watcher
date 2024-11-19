@@ -9,9 +9,10 @@ import (
 
 func SetHooks(session string) {
 	// not yet used
+	fmt.Println("setting hooks")
 	args := []string{"set-hook","-t", session, "client-attached", "display-message hi"}
 
-	out, cmdErr, err := RunCmd(args...)
+	out, cmdErr, err := RunTmux(args...)
 	if cmdErr != "" {
 		fmt.Println(cmdErr)
 	}
@@ -29,8 +30,11 @@ func MoniterSessions(sessions []string, config Config, srv *sheets.Service) {
 	if srv != nil {
 		withGoogle = true
 	}
+
+	var prevOut string = ""
 	for {
-		out, cmdErr, err := RunCmd("list-sessions", "-F", "#{session_name} #{session_activity}")
+		out, cmdErr, err := RunTmux("list-sessions", "-F", "#{session_name} #{session_activity}")
+
 		if cmdErr != "" {
 			fmt.Println(cmdErr)
 			continue
@@ -41,13 +45,13 @@ func MoniterSessions(sessions []string, config Config, srv *sheets.Service) {
 			continue
 		}
 		
-		if withGoogle{
-			fmt.Println("using google sheets")
+		if withGoogle {
 			UpdateSessionsWithGoogle(out, config, srv)
 		} else {
-			fmt.Println("using local file")
-			UpdateSessionsLocally(out, config)
+			UpdateSessionsLocally(config, out, prevOut)
 		}
+
+		prevOut = out
 
 		time.Sleep(5 * time.Minute)
 	}
